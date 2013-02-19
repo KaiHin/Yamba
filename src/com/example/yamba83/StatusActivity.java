@@ -6,17 +6,22 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
 
-public class StatusActivity extends Activity implements OnClickListener  { // Make StatusActivity capable of being a button listener, needs to implement onClickListener interface
+public class StatusActivity extends Activity implements OnClickListener, TextWatcher  {  // Declare that StatusActivity implements OnClickListener and TextWatcher
 	private static final String TAG = "StatusActivity";
 	EditText editText;
 	Button updateButton;
 	Twitter twitter;
+	TextView textCount; // TextCount is the TextView defined in status.xml
 		
 	/** Called when the activity is first created */
     @Override
@@ -27,13 +32,17 @@ public class StatusActivity extends Activity implements OnClickListener  { // Ma
     	// Find views
         editText = (EditText) findViewById(R.id.editText); // Find views inflated from xml layout and assign to Java variables
         updateButton = (Button) findViewById(R.id.buttonUpdate);
-        
         updateButton.setOnClickListener(this); // Registers button to notify 'this' (i.e. StausActivity) when it's clicked
+        
+        textCount = (TextView) findViewById(R.id.textCount); // Find views inflated from xml layout and assign to Java variables
+        textCount.setText(Integer.toString(140)); // TextView takes value as a number, so it converts number to text
+        textCount.setTextColor(Color.GREEN); // Starts with green color
+        editText.addTextChangedListener(this); // Attach TextWatcher to editText field. editText calls TextWatcher instance which refers to this object itself
+        
         
         twitter = new Twitter("student", "password"); // Connect to online service that supports Twitter API, usrname and pwd hardcoded
         twitter.setAPIRootUrl("http://yamba.marakana.com/api"); 
         }
-
     
     /** Asynchronously post to Twitter */
     class PostToTwitter extends AsyncTask<String, Integer, String> { // 1st data type for doInBackGround, 2nd for onProgressUpdate, 3rd for onPostExecute
@@ -64,6 +73,22 @@ public class StatusActivity extends Activity implements OnClickListener  { // Ma
     	}
     }
     
+    /** Implementation of TextWatcher methods */
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) { // This method is empty but we need to implement it to complete the TextWatcher in StatusActivity
+    }
+    
+    public void onTextChanged(CharSequence s, int before, int start, int count) { // This method is empty but we need to implement it to complete the TextWatcher in StatusActivity
+    }
+    
+    public void afterTextChanged(Editable statusText) { // This method is called wheneever a text is changed and returns that with current text
+    	int count = 140 - statusText.length(); 
+    	textCount.setText(Integer.toString(count));
+    	textCount.setTextColor(Color.GREEN);
+    		if (count < 10)
+    			textCount.setTextColor(Color.BLUE);
+    		if (count < 0)
+    			textCount.setTextColor(Color.RED);
+    }    
     
     /** Called when button is clicked */
     public void onClick(View v) {

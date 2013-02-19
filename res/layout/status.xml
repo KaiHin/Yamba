@@ -1,22 +1,33 @@
 <!-- MainLayout of StatusActivity -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/spotifybackgroundcropped"
     android:orientation="vertical"
     tools:context=".StatusActivity" >
 
-<!-- Title TextView -->    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:layout_margin="10dp"
-        android:text="@string/titleStatus" />
+	<!-- Title TextView -->    
 
-<!-- Status EditText -->    
+   	<TextView
+   	    android:layout_width="match_parent"
+   	    android:layout_height="wrap_content"
+   	    android:layout_margin="10dp"
+   	    android:gravity="center"
+   	    android:text="@string/titleStatus"
+   	    android:textSize="30sp" />
+    
+	<!-- TextCount TextView -->
+	<TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="right"
+	    android:layout_marginRight="10dp"
+	    android:id="@+id/textCount"
+	    android:text="000" /> <!-- This is a hardcoded string and needs to be refactored later -->
+
+	<!-- Status EditText -->    
     <EditText 
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -25,7 +36,7 @@
         android:id="@+id/editText"
         android:gravity="top|center_horizontal"/>
     
-<!--  Update Button -->
+	<!--  Update Button -->
 	<Button 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"

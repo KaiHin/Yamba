@@ -2,12 +2,12 @@
 <resources>
 
     <!-- Standard generated strings -->
-    <string name="app_name">Yamba</string>
+    <string name="app_name">Spotify Social</string>
     <string name="menu_settings">Settings</string>
     
     <!-- User added strings -->
-    <string name="titleStatus">Status Update</string>
-    <string name="hintText">Please enter your status</string>
+    <string name="titleStatus">Music Update</string>
+    <string name="hintText">What is awesome right now?</string>
     <string name="buttonUpdate">Update</string>
 
 </resources>
