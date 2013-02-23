@@ -57,7 +57,7 @@ public class StatusActivity extends Activity implements OnClickListener, TextWat
     		String username, password, apiRoot;
         	username = prefs.getString("username",""); // Get the usrname and pwd fromt he shared pref. An empty default value is used if no usrname or pwd is found. 
         	password = prefs.getString("password","");
-        	apiRoot = prefs.getString("apiRoot", "http://yamba.markana.com/api");
+        	apiRoot = prefs.getString("apiRoot","http://yamba.marakana.com/api");
         		
         		// Connect to Twitter
         		twitter = new Twitter(username, password); // Log in to Twitter service with user defined usrname and pwd

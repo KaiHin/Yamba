@@ -31,7 +31,7 @@ public class Yamba83Application extends Application implements OnSharedPreferenc
 		if (this.twitter == null) {
 			String username = this.prefs.getString("username","");
 			String password = this.prefs.getString("password","");
-			String apiRoot = this.prefs.getString("apiRoot","http://yamba.markana.com/api");
+			String apiRoot = this.prefs.getString("apiRoot","http://yamba.marakana.com/api");
 			if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(apiRoot)) {
 				this.twitter = new Twitter(username, password);
 				this.twitter.setAPIRootUrl(apiRoot);
@@ -42,5 +42,15 @@ public class Yamba83Application extends Application implements OnSharedPreferenc
 	
 	public synchronized void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) { //onSharedPreferenceChanged is also a part of this class now instead of StatusActivity
 		this.twitter = null;
+	}
+	
+	private boolean serviceRunning; // Flag indicates whether service is running or not
+	
+	public boolean isServiceRunning() { // Check status of serviceRunning flag
+		return serviceRunning; 
+	}
+	
+	public void setServiceRunning(boolean serviceRunning) { // set state of flag
+		this.serviceRunning = serviceRunning;
 	}
 }

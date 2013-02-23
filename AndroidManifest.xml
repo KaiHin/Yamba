@@ -22,4 +22,4 @@
         <activity android:name=".Yamba83Application" />
         <service android:name=".UpdaterService"></service>
 	</application>
-</manifest>l
+</manifest>

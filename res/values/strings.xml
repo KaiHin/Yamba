@@ -18,5 +18,9 @@
     <string name="summaryUsername">Please enter your username</string>
     <string name="summaryPassword">Please enter your password</string>
     <string name="summaryApiRoot">URL of API root for service</string>
+    
+    <!-- Strings for UpdaterServices -->
+    <string name="titleServiceStart">Start service</string>
+    <string name="titleServiceStop">Stop service</string>
 
 </resources>

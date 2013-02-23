@@ -19,7 +19,9 @@ public final class R {
         public static final int buttonUpdate=0x7f080003;
         public static final int editText=0x7f080002;
         public static final int itemPrefs=0x7f080004;
-        public static final int menu_settings=0x7f080005;
+        public static final int itemServiceStart=0x7f080005;
+        public static final int itemServiceStop=0x7f080006;
+        public static final int menu_settings=0x7f080007;
         public static final int textCount=0x7f080001;
     }
     public static final class layout {
@@ -42,6 +44,10 @@ public final class R {
         public static final int titleApiRoot=0x7f050008;
         public static final int titlePassword=0x7f050007;
         public static final int titlePrefs=0x7f050005;
+        /**  Strings for UpdaterServices 
+         */
+        public static final int titleServiceStart=0x7f05000c;
+        public static final int titleServiceStop=0x7f05000d;
         /**  User added strings 
          */
         public static final int titleStatus=0x7f050002;
